@@ -1,0 +1,10 @@
+# node modules
+node_modules/
+
+# IDE
+.vscode/
+
+# OS관련
+.DS_Store
+Thumbs.db
+
