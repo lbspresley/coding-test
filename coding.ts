@@ -87,3 +87,43 @@ export const isUnique = (str: string): boolean => {
   }
   return true;
 };
+
+export const URLify = (str: string): string => {
+  // return str.replace(/\s/g, "%20");
+  // return str.trim().replace(/\s/g, "%20");
+  const strArr = str.trim().split("");
+  const result: string[] = [];
+  for (const char of strArr) {
+    if (char === " ") {
+      result.push("%20");
+    } else {
+      result.push(char);
+    }
+  }
+  return result.join("");
+};
+
+export const URLify2 = (str: string, length: number): string => {
+  const whiteSpaceCount = str.length - length;
+  let startIndex = 0;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] !== " ") {
+      startIndex = i;
+      break;
+    }
+  }
+  const strArr: string[] = str.split("");
+  const result: string[] = [];
+  for (
+    let i = startIndex;
+    i < strArr.length - whiteSpaceCount + startIndex;
+    i++
+  ) {
+    if (strArr[i] === " ") {
+      result.push("%20");
+    } else {
+      result.push(strArr[i]);
+    }
+  }
+  return result.join("");
+};

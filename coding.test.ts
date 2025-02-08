@@ -7,6 +7,8 @@ import {
   isPalindrome,
   isUnique,
   numSetBits,
+  URLify,
+  URLify2,
 } from "./coding";
 
 describe("test", () => {
@@ -128,5 +130,19 @@ describe("isUnique", () => {
     expect(isUnique("")).toBe(true);
     expect(isUnique("abc")).toBe(true);
     expect(isUnique("abca")).toBe(false);
+  });
+});
+
+describe("URLify", () => {
+  it("should replace spaces with %20", () => {
+    expect(URLify("Mr John Smith")).toBe("Mr%20John%20Smith");
+    expect(URLify("    Mr John Smith")).toBe("Mr%20John%20Smith");
+    expect(URLify("    Mr John Smith      ")).toBe("Mr%20John%20Smith");
+  });
+  it("should replace spaces with %20", () => {
+    expect(URLify2("Mr John Smith", 13)).toBe("Mr%20John%20Smith");
+    expect(URLify2("    Mr John Smith", 13)).toBe("Mr%20John%20Smith");
+    console.log("🚀 ~ it ~ URLify:", URLify2("    Mr John Smith      ", 13));
+    expect(URLify2("    Mr John Smith      ", 13)).toBe("Mr%20John%20Smith");
   });
 });
