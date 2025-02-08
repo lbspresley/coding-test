@@ -5,9 +5,16 @@ import {
   deepClone,
   flatten,
   isPalindrome,
+  isUnique,
+  numSetBits,
 } from "./coding";
 
 describe("test", () => {
+  const num = 11;
+  const str: string = num.toString(2);
+  console.log("🚀 ~ describe ~ str:", str);
+  const aa = str.split("1");
+  console.log("🚀 ~ describe ~ aa:", aa);
   const a = [1, 2, 3, [4], [5, [6]]];
   console.log("🚀 ~ describe ~ slice(0, 2):", a.slice(0, 2));
   console.log("🚀 ~ describe ~ slice():", a.slice());
@@ -106,5 +113,20 @@ describe("isPalindrome", () => {
     expect(isPalindrome("hello")).toBe(false);
     expect(isPalindrome("A man, a plan, a canal, Panama")).toBe(true);
     expect(isPalindrome("No lemon, no melon")).toBe(true);
+  });
+});
+
+describe("numSetBits", () => {
+  it("should count the number of set bits in a number", () => {
+    expect(numSetBits(10)).toBe(2);
+    expect(numSetBits(15)).toBe(4);
+  });
+});
+
+describe("isUnique", () => {
+  it("should check if a string has all unique characters", () => {
+    expect(isUnique("")).toBe(true);
+    expect(isUnique("abc")).toBe(true);
+    expect(isUnique("abca")).toBe(false);
   });
 });

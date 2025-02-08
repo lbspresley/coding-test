@@ -65,3 +65,25 @@ export const isPalindrome = (str: string): boolean => {
   const reversedStr = cleanedStr.split("").reverse().join("");
   return cleanedStr === reversedStr;
 };
+
+export const numSetBits = (num: number): number => {
+  let count = 0;
+  while (num > 0) {
+    count += num & 1;
+    num >>= 1;
+  }
+  return count;
+};
+
+export const numSetBits2 = (num: number): number => {
+  return num.toString(2).split("1").length - 1;
+};
+
+export const isUnique = (str: string): boolean => {
+  const charSet = new Set<string>();
+  for (const char of str) {
+    if (charSet.has(char)) return false;
+    charSet.add(char);
+  }
+  return true;
+};
