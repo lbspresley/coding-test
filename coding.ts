@@ -198,3 +198,27 @@ export const oneEditInsert = (str1: string, str2: string): boolean => {
   }
   return true;
 };
+
+/**
+ * String Compression
+ *
+ * Implement a function that compresses a string.
+ * 문자열을 압축하는 함수를 작성하시오.
+ * 문자열을 압축할 때는 연속된 문자열을 찾아서 그 문자열의 개수를 압축한다.
+ * 문자열의 길이가 기존 문자열의 길이보다 길면 기존 문자열을 반환한다.
+ * 문자열은 알파벳 대문자와 소문자만 포함한다.
+ */
+export const stringCompression = (str: string): string => {
+  const result: string[] = [];
+  let count = 1;
+  for (let i = 0; i < str.length; i++) {
+    if (str[i] === str[i + 1]) {
+      count++;
+    } else {
+      result.push(str[i], count.toString());
+      count = 1;
+    }
+  }
+  const out = result.join("");
+  return out.length < str.length ? out : str;
+};

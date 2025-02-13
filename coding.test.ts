@@ -8,6 +8,7 @@ import {
   isUnique,
   numSetBits,
   oneAway,
+  stringCompression,
   URLify,
   URLify2,
 } from "./coding";
@@ -16,6 +17,9 @@ describe("test", () => {
   const num = 11;
   const str: string = num.toString(2);
   console.log("🚀 ~ describe ~ str:", str);
+  for (let i = 0; i <= str.length; i++) {
+    console.log("🚀 ~ describe ~ str[i]:", str[i]);
+  }
   const aa = str.split("1");
   console.log("🚀 ~ describe ~ aa:", aa);
   const a = [1, 2, 3, [4], [5, [6]]];
@@ -154,5 +158,15 @@ describe("oneAway", () => {
     expect(oneAway("pales", "pale")).toBe(true);
     expect(oneAway("pale", "bale")).toBe(true);
     expect(oneAway("pale", "bake")).toBe(false);
+  });
+});
+
+describe("stringCompression", () => {
+  it("should compress a string", () => {
+    expect(stringCompression("aabcccccaaa")).toBe("a2b1c5a3");
+    expect(stringCompression("aa")).toBe("aa");
+    expect(stringCompression("a")).toBe("a");
+    expect(stringCompression("")).toBe("");
+    expect(stringCompression("aaaAAaa")).toBe("a3A2a2");
   });
 });
