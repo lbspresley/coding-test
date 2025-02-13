@@ -2,6 +2,7 @@
  * 1. Chunk
  *
  * Implement a function that splits an array into chunks of a given size.
+ * 배열을 주어진 크기로 잘라서 반환하는 함수를 작성하시오.
  */
 
 export const chunk = (arr: any[], size: number = 1): any[][] => {
@@ -14,6 +15,12 @@ export const chunk = (arr: any[], size: number = 1): any[][] => {
   return result;
 };
 
+/**
+ * Flatten
+ *
+ * Implement a function that flattens an array to a given depth.
+ * 배열을 주어진 깊이까지 평탄화하는 함수를 작성하시오.
+ */
 export const flatten = (arr: any[], depth: number = Infinity): any[] => {
   return depth > 0
     ? arr.reduce((acc, item) => {
@@ -39,6 +46,13 @@ export const deepClone = (obj: any): any => {
   return Object.fromEntries(entries);
 };
 
+/**
+ * Check Permutation
+ *
+ * Implement a function that checks if two strings are permutations of each other.
+ * 두 문자열이 서로 순열인지 확인하는 함수를 작성하시오.
+ * 순열이란 두 문자열이 같은 문자를 같은 개수만큼 가지고 있는 것을 말한다.
+ */
 export const checkPermutation = (str1: string, str2: string): boolean => {
   if (str1.length !== str2.length) return false;
   const sortedStr1 = str1.split("").sort().join("");
@@ -60,6 +74,13 @@ export const checkPermutation2 = (str1: string, str2: string): boolean => {
   return true;
 };
 
+/**
+ * Palindrome
+ *
+ * Implement a function that checks if a string is a palindrome.
+ * 문자열이 회문인지 확인하는 함수를 작성하시오.
+ * 회문이란 앞으로 읽으나 뒤로 읽으나 같은 문자열을 말한다.
+ */
 export const isPalindrome = (str: string): boolean => {
   const cleanedStr = str.replace(/[^a-zA-Z0-9]/g, "").toLowerCase();
   const reversedStr = cleanedStr.split("").reverse().join("");
@@ -88,6 +109,13 @@ export const isUnique = (str: string): boolean => {
   return true;
 };
 
+/**
+ * URLify
+ *
+ * Implement a function that replaces all spaces in a string with "%20".
+ * 문자열의 끝에 있는 공백은 제거하지 않는다.
+ * 문자열의 앞에 있는 공백은 제거하고 뒤에 있는 공백은 제거하지 않는다.
+ */
 export const URLify = (str: string): string => {
   // return str.replace(/\s/g, "%20");
   // return str.trim().replace(/\s/g, "%20");
@@ -128,6 +156,16 @@ export const URLify2 = (str: string, length: number): string => {
   return result.join("");
 };
 
+/**
+ * One Away
+ *
+ * Implement a function that checks if two strings are one edit away from each other.
+ * 문자열을 편집하는 방법에는 세가지가 있다.
+ * 1. 문자 하나를 더하기
+ * 2. 문자 하나를 빼기
+ * 3. 문자 하나를 바꾸기
+ * 이 세가지 방법 중 하나로 두 문자열이 같아질 수 있는지 확인하는 함수를 작성하시오.
+ */
 export const oneAway = (str1: string, str2: string): boolean => {
   if (str1.length === str2.length) return oneEditReplace(str1, str2);
   if (str1.length + 1 === str2.length) return oneEditInsert(str1, str2);
