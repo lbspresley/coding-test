@@ -7,6 +7,7 @@ import {
   isPalindrome,
   isUnique,
   numSetBits,
+  oneAway,
   URLify,
   URLify2,
 } from "./coding";
@@ -144,5 +145,14 @@ describe("URLify", () => {
     expect(URLify2("    Mr John Smith", 13)).toBe("Mr%20John%20Smith");
     console.log("🚀 ~ it ~ URLify:", URLify2("    Mr John Smith      ", 13));
     expect(URLify2("    Mr John Smith      ", 13)).toBe("Mr%20John%20Smith");
+  });
+});
+
+describe("oneAway", () => {
+  it("should check if two strings are one edit away", () => {
+    expect(oneAway("pale", "ple")).toBe(true);
+    expect(oneAway("pales", "pale")).toBe(true);
+    expect(oneAway("pale", "bale")).toBe(true);
+    expect(oneAway("pale", "bake")).toBe(false);
   });
 });
